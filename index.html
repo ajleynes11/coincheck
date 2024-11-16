@@ -60,6 +60,9 @@
         <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="pikamoon"
           initial-currency="usd">
         </gecko-coin-price-chart-widget>
+      </div>
+
+      <div class="col-md-3">
         <h5 id="pikaMarketcap"> </h5>
         <h5 id="pikaHoldings"> </h5>
 
@@ -72,7 +75,15 @@
         <!-- <h5 id="tp3_price"> </h5> -->
         <h5 id="tp3_mc"> </h5>
       </div>
-
+    </div>
+    <div class="row">
+      <div class="col-md-3 widget-container">
+        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="bitcoin"
+          initial-currency="usd">
+        </gecko-coin-price-chart-widget>
+      </div>
+    </div>
+    <div class="row">
       <!-- Myria Widget -->
       <div class="col-md-3 widget-container">
         <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="myria"
@@ -121,7 +132,7 @@
   const url = 'https://api.coingecko.com/api/v3/coins/pikamoon';
   const pikaHoldings = 18500000
   const percentage = 0.03
-  let totalPika = pikaHoldings*percentage
+  let totalPika = pikaHoldings * percentage
   totalPika = pikaHoldings - totalPika
   console.log(totalPika)
 
@@ -160,7 +171,7 @@
         document.getElementById('tp1_mc').innerText = `1. ${tp1_total}`;
         document.getElementById('tp2_mc').innerText = `2. ${tp2_total}`;
         document.getElementById('tp3_mc').innerText = `3. ${tp3_total}`;
-        
+
 
       })
       .catch(error => {
