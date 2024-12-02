@@ -2,235 +2,238 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
 
-  <!-- Bootstrap CDN (Without Integrity and Crossorigin) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CDN (Without Integrity and Crossorigin) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom Styles -->
-  <style>
-    body {
-      background-color: #121212;
-      /* Dark background */
-      color: #ffffff;
-      /* White text */
-    }
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #121212;
+            /* Dark background */
+            color: #ffffff;
+            /* White text */
+        }
 
-    .search-container {
-      margin-top: 1
-        /* Add top margin */
-    }
+        .search-container {
+            margin-top: 1
+                /* Add top margin */
+        }
 
-    .widget-container {
-      margin-bottom: 30px;
-      /* Spacing below each widget */
-    }
-  </style>
+        .widget-container {
+            margin-bottom: 30px;
+            /* Spacing below each widget */
+        }
+    </style>
 
-  <!-- CoinGecko Widget -->
-  <script src="https://widgets.coingecko.com/gecko-coin-price-chart-widget.js"></script>
+    <!-- CoinGecko Widget -->
+    <script src="https://widgets.coingecko.com/gecko-coin-price-chart-widget.js"></script>
 </head>
 
 <body>
 
-  <!-- Google Search Bar Row -->
-  <div class="container mt-5 pt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form action="https://www.google.com/search" method="get">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control bg-dark text-white" placeholder="Search Google..."
-              aria-label="Google Search">
-            <button type="submit" class="btn btn-primary">Search</button>
-          </div>
-        </form>
-      </div>
+    <!-- Google Search Bar Row -->
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="https://www.google.com/search" method="get">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control bg-dark text-white"
+                            placeholder="Search Google..." aria-label="Google Search">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Coin Widgets Row -->
-  <div class="container mt-5">
+    <!-- Coin Widgets Row -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-12 widget-container text-center text-center d-flex justify-content-center">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/"
+                            rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on
+                                TradingView</span></a></div>
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+                            {
+                                "colorTheme": "dark",
+                                    "dateRange": "12M",
+                                        "showChart": false,
+                                            "locale": "en",
+                                                "largeChartUrl": "",
+                                                    "isTransparent": false,
+                                                        "showSymbolLogo": true,
+                                                            "showFloatingTooltip": false,
+                                                                "width": "400",
+                                                                    "height": "700",
+                                                                        "tabs": [
+                                                                            {
+                                                                                "title": "Crypto",
+                                                                                "symbols": [
+                                                                                    {
+                                                                                        "s": "BINANCE:BTCUSD"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "BINANCE:ETHUSD"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "BINANCE:SOLUSD"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "BITGET:PIKAUSDT"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "CRYPTOCAP:BTC.D"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "CRYPTOCAP:OTHERS.D"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "KUCOIN:MYRIAUSDT"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "BYBIT:NEONUSDT"
+                                                                                    },
+                                                                                    {
+                                                                                        "s": "CRYPTOCAP:USDT.D"
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+
+            <div class="col-md-12 text-center">
+                <details>
+                    <summary>Open</summary>
+                    <h5 id="pikaMarketcap"> </h5>
+                    <h5 id="pikaHoldings"> </h5>
+
+                    <!-- <h5 id="tp1_price"> </h5> -->
+                    <h5 id="tp1_mc"> </h5>
+
+                    <!-- <h5 id="tp2_price"> </h5> -->
+                    <h5 id="tp2_mc"> </h5>
+
+                    <!-- <h5 id="tp3_price"> </h5> -->
+                    <h5 id="tp3_mc"> </h5>
+                </details>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <a href="https://www.google.com/android/find/" class="btn btn-primary btn-lg btn-block">Find my phone</a>
+        </div>
+    </div>
+
+    <div class="container mt-2"></div>
     <div class="row">
-
-      <!-- Pikamoon Widget -->
-      <div class="col-md-3 widget-container">
-        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="pikamoon"
-          initial-currency="usd">
-        </gecko-coin-price-chart-widget>
-      </div>
-
-      <div class="col-md-3">
-        <h5 id="pikaMarketcap"> </h5>
-        <h5 id="pikaHoldings"> </h5>
-
-        <!-- <h5 id="tp1_price"> </h5> -->
-        <h5 id="tp1_mc"> </h5>
-
-        <!-- <h5 id="tp2_price"> </h5> -->
-        <h5 id="tp2_mc"> </h5>
-
-        <!-- <h5 id="tp3_price"> </h5> -->
-        <h5 id="tp3_mc"> </h5>
-      </div>
+        <div class="col-md-12 text-center">
+            <h5 id="quote" class="mt-5"> </h5>
+            <h6 id="lastSync"> </h6>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-md-3 widget-container">
-        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="bitcoin"
-          initial-currency="usd">
-        </gecko-coin-price-chart-widget>
-      </div>
-
-      <div class="col-md-3 widget-container">
-        <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-  {
-  "symbol": "CRYPTOCAP:BTC.D",
-  "width": "100%",
-  "height": "100%",
-  "locale": "en",
-  "dateRange": "12M",
-  "colorTheme": "dark",
-  "isTransparent": false,
-  "autosize": true,
-  "largeChartUrl": ""
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-      </div>
-      
     </div>
-    <div class="row">
-      <!-- Myria Widget -->
-      <div class="col-md-3 widget-container">
-        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="myria"
-          initial-currency="usd">
-        </gecko-coin-price-chart-widget>
-      </div>
 
-      <!-- TokenFi Widget -->
-      <div class="col-md-3 widget-container">
-        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="tokenfi"
-          initial-currency="usd">
-        </gecko-coin-price-chart-widget>
-      </div>
-
-      <!-- Neon Widget -->
-      <div class="col-md-3 widget-container">
-        <gecko-coin-price-chart-widget locale="en" dark-mode="true" outlined="true" coin-id="neon"
-          initial-currency="usd">
-        </gecko-coin-price-chart-widget>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <div class="row">
-      <a href="https://www.google.com/android/find/" class="btn btn-primary btn-lg btn-block">Find my phone</a>
-    </div>
-  </div>
-
-  <div class="container mt-2"></div>
-  <div class="row">
-    <div class="col-md-12 text-center">
-      <h5 id="quote" class="mt-5"> </h5>
-      <h6 id="lastSync"> </h6>
-    </div>
-  </div>
-  </div>
-
-  <!-- Bootstrap JS Bundle (Without Integrity and Crossorigin) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS Bundle (Without Integrity and Crossorigin) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 
 <script>
-  const url = 'https://api.coingecko.com/api/v3/coins/pikamoon';
-  const pikaHoldings = 1900000
-  const percentage = 0.03
-  let totalPika = pikaHoldings * percentage
-  totalPika = pikaHoldings - totalPika
-  console.log(totalPika)
+    const url = 'https://api.coingecko.com/api/v3/coins/pikamoon';
+    const pikaHoldings = 1900000
+    const percentage = 0.03
+    let totalPika = pikaHoldings * percentage
+    totalPika = pikaHoldings - totalPika
+    console.log(totalPika)
 
-  setInterval(() => {
-    getCoins();
-    changeBackgroundColor();
-    fetchQuote();
-  }, 85000);
+    setInterval(() => {
+        getCoins();
+        changeBackgroundColor();
+        fetchQuote();
+    }, 85000);
 
-  function getCoins() {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        const marketCap = data.market_data.market_cap.usd;
-        const usdHoldings = totalPika * data.market_data.current_price.usd;
-        const phpHoldings = totalPika * data.market_data.current_price.php;
-        const currentTime = new Date().toLocaleTimeString();
+    function getCoins() {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const marketCap = data.market_data.market_cap.usd;
+                const usdHoldings = totalPika * data.market_data.current_price.usd;
+                const phpHoldings = totalPika * data.market_data.current_price.php;
+                const currentTime = new Date().toLocaleTimeString();
 
-        const tp1_mc = 15000000 / marketCap
-        const tp2_mc = 30000000 / marketCap
-        const tp3_mc = 70000000 / marketCap
+                const tp1_mc = 15000000 / marketCap
+                const tp2_mc = 30000000 / marketCap
+                const tp3_mc = 70000000 / marketCap
 
-        const tp1_total = tp1_mc * phpHoldings
-        const tp2_total = tp2_mc * phpHoldings
-        const tp3_total = tp3_mc * phpHoldings
+                const tp1_total = tp1_mc * phpHoldings
+                const tp2_total = tp2_mc * phpHoldings
+                const tp3_total = tp3_mc * phpHoldings
 
-        document.getElementById('pikaMarketcap').innerText = `Pikamoon Market Cap: $${marketCap.toLocaleString()}`;
-        document.getElementById('pikaHoldings').innerText = `Pikamoon: ${phpHoldings}`;
-        document.getElementById('lastSync').innerText = `Last sync ${currentTime}`;
+                document.getElementById('pikaMarketcap').innerText = `Pikamoon Market Cap: $${marketCap.toLocaleString()}`;
+                document.getElementById('pikaHoldings').innerText = `Pikamoon: ${phpHoldings}`;
+                document.getElementById('lastSync').innerText = `Last sync ${currentTime}`;
 
-        document.getElementById('tp1_mc').innerText = `1. ${tp1_total}`;
-        document.getElementById('tp2_mc').innerText = `2. ${tp2_total}`;
-        document.getElementById('tp3_mc').innerText = `3. ${tp3_total}`;
-
-
-      })
-      .catch(error => {
-        console.error(`Error: ${error}`);
-      });
-  }
-
-  function changeBackgroundColor() {
-    const darkColors = [
-      '#092635',
-      '#22092C', // Dark Red
-      '#35374B', // Dark Violet
-      '#3E3232',  // Black (Smoky Black)
-      '#22092C',
-      '#0F0F0F',
-      '#331D2C',
-      '#2C3333',
-    ];
-
-    const randomColor = darkColors[Math.floor(Math.random() * darkColors.length)];
-    document.body.style.backgroundColor = randomColor;
-  }
+                document.getElementById('tp1_mc').innerText = `1. ${tp1_total}`;
+                document.getElementById('tp2_mc').innerText = `2. ${tp2_total}`;
+                document.getElementById('tp3_mc').innerText = `3. ${tp3_total}`;
 
 
-  async function fetchQuote() {
-    const response = await fetch('https://zenquotes.io/api/random');
-    const data = await response.json();
-    console.log(data)
-    document.getElementById('quote').innerText = data[0].q + ' - ' + data[0].a;
-  }
+            })
+            .catch(error => {
+                console.error(`Error: ${error}`);
+            });
+    }
 
-  document.addEventListener('DOMContentLoaded', function () {
-    getCoins();
-    fetchQuote();
-    changeBackgroundColor();
-  });
+    function changeBackgroundColor() {
+        const darkColors = [
+            '#092635',
+            '#22092C', // Dark Red
+            '#35374B', // Dark Violet
+            '#3E3232',  // Black (Smoky Black)
+            '#22092C',
+            '#0F0F0F',
+            '#331D2C',
+            '#2C3333',
+        ];
+
+        const randomColor = darkColors[Math.floor(Math.random() * darkColors.length)];
+        document.body.style.backgroundColor = randomColor;
+    }
+
+
+    async function fetchQuote() {
+        const response = await fetch('https://zenquotes.io/api/random');
+        const data = await response.json();
+        console.log(data)
+        document.getElementById('quote').innerText = data[0].q + ' - ' + data[0].a;
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        getCoins();
+        fetchQuote();
+        changeBackgroundColor();
+    });
 </script>
 
 </html>
