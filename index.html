@@ -156,32 +156,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
-
 <script>
     const url = 'https://api.coingecko.com/api/v3/coins/pikamoon';
-    const percentage = 0.03;
 
-    function initializePikaHoldings() {
-        let pikaHoldings = localStorage.getItem('pikaHoldings');
-        
-        if (!pikaHoldings) {
-            pikaHoldings = prompt("Enter your Pikamoon holdings:");
-            
-            // Ensure valid input (positive number)
-            while (!pikaHoldings || isNaN(pikaHoldings) || parseFloat(pikaHoldings) <= 0) {
-                pikaHoldings = prompt("Invalid input. Please enter a valid number for your Pikamoon holdings:");
-            }
-            
-            localStorage.setItem('pikaHoldings', pikaHoldings);
-        }
-        
-        return parseFloat(pikaHoldings);
+    // Retrieve or set Pika holdings from localStorage
+    let pikaHoldings = localStorage.getItem('pikaHoldings');
+    if (!pikaHoldings) {
+        pikaHoldings = prompt("Enter your Pika holdings:");
+        localStorage.setItem('pikaHoldings', pikaHoldings);
     }
-
-    const pikaHoldings = initializePikaHoldings();
+    pikaHoldings = parseFloat(pikaHoldings);
+    const percentage = 0.03;
     let totalPika = pikaHoldings * (1 - percentage);
 
-    console.log(`Total adjusted Pikamoon holdings: ${totalPika}`);
+    console.log(totalPika);
 
     setInterval(() => {
         getCoins();
@@ -211,13 +199,28 @@
                 const tp2_total = tp2_mc * phpHoldings;
                 const tp3_total = tp3_mc * phpHoldings;
 
+                // Calculate 30% selling value
+                const tp1_selling_30 = tp1_total * 0.3;
+                const tp2_selling_30 = tp2_total * 0.3;
+                const tp3_selling_30 = tp3_total * 0.3;
+
+                // Update DOM elements
                 document.getElementById('pikaMarketcap').innerText = `Pikamoon Market Cap: $${marketCap.toLocaleString()}`;
-                document.getElementById('pikaHoldings').innerText = `Pikamoon PHP Holdings: ₱${phpHoldings.toLocaleString()}`;
+                document.getElementById('pikaHoldings').innerText = `Pikamoon: ${phpHoldings}`;
                 document.getElementById('lastSync').innerText = `Last sync ${currentTime}`;
 
-                document.getElementById('tp1_mc').innerText = `1. Target PHP: ₱${tp1_total.toLocaleString()}`;
-                document.getElementById('tp2_mc').innerText = `2. Target PHP: ₱${tp2_total.toLocaleString()}`;
-                document.getElementById('tp3_mc').innerText = `3. Target PHP: ₱${tp3_total.toLocaleString()}`;
+                document.getElementById('tp1_mc').innerHTML = `
+                    1. ${tp1_total.toLocaleString()} PHP<br>
+                    Selling 30%: ${tp1_selling_30.toLocaleString()} PHP
+                `;
+                document.getElementById('tp2_mc').innerHTML = `
+                    2. ${tp2_total.toLocaleString()} PHP<br>
+                    Selling 30%: ${tp2_selling_30.toLocaleString()} PHP
+                `;
+                document.getElementById('tp3_mc').innerHTML = `
+                    3. ${tp3_total.toLocaleString()} PHP<br>
+                    Selling 30%: ${tp3_selling_30.toLocaleString()} PHP
+                `;
             })
             .catch(error => {
                 console.error(`Error: ${error}`);
@@ -227,9 +230,9 @@
     function changeBackgroundColor() {
         const darkColors = [
             '#092635',
-            '#22092C', // Dark Red
-            '#35374B', // Dark Violet
-            '#3E3232',  // Black (Smoky Black)
+            '#22092C',
+            '#35374B',
+            '#3E3232',
             '#22092C',
             '#0F0F0F',
             '#331D2C',
@@ -253,6 +256,7 @@
         changeBackgroundColor();
     });
 </script>
+
 
 
 </html>
